@@ -18,4 +18,4 @@ human_memory_trainer
 
 
 ## UML-diagram ##
-![UML](http://files.mail.ru/275C1F55AAB5406B8B0A3F862CCFE4AC?t=1)
+![UML](http://files.mail.ru/275C1F55AAB5406B8B0A3F862CCFE4AC1)

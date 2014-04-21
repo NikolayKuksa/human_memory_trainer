@@ -14,4 +14,4 @@ human_memory_trainer
 2. Негода К.В.
 
 ## UML-diagram ##
-![UML](http://cs606530.vk.me/v606530962/5f20/6R2-_v1aMEk.jpg)
+![UML](http://files.mail.ru/275C1F55AAB5406B8B0A3F862CCFE4AC?t=1)

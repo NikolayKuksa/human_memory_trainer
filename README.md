@@ -18,4 +18,4 @@ human_memory_trainer
 
 
 ## UML-diagram ##
-![UML](http://smages.com/?v=diag.png)
+![UML](http://ipic.su/img/img7/fs/diag.1398139581.png)

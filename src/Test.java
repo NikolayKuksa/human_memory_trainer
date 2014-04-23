@@ -2,9 +2,9 @@ package ourproject;
 
 public abstract class Test extends MemoryTest implements MainBehavior {
 
-  private Integer currentlyLevel;
+   protected Integer currentlyLevel;
 
-  public Integer currentlySubLevel;
+   protected Integer currentlySubLevel;
 
   public void setMaxLevel(){
       

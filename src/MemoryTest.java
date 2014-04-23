@@ -2,9 +2,9 @@ package ourproject;
 
 public abstract class MemoryTest {
 
-  public Integer maxLevel;
+   protected Integer maxLevel;
 
-  public Integer maxSubLevel;
+   protected Integer maxSubLevel;
 
 
 }

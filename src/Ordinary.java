@@ -1,4 +1,4 @@
-package ourproject;
+package human_memory_trainer.src;
 
 public class Ordinary extends User {
 

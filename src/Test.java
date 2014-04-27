@@ -1,29 +1,89 @@
 package human_memory_trainer.src;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 abstract class Test  {
 
-  protected Integer currentlyLevel;
-
-  protected Integer currentlySubLevel;
-
-  protected Integer time;
+  protected int currentlyLevel=1;
+  protected int currentlySubLevel=1;
+  protected int time=5;
+  protected final int dimension=6;
+  private Random rand=new Random();
   
-  void random_set() {
+  Test(){
+  }
+  
+  Test(int level, int sublevel, int timeForTest){
+      currentlyLevel=level;
+      currentlySubLevel=sublevel;
+      time=timeForTest;
   }
 
-  void setCurrentlyLevel() {
+  int getCurrentlyDimension(){
+        if(currentlyLevel==1)
+            return dimension;
+        if(currentlyLevel==2)
+            return dimension+1;
+        if(currentlyLevel==3)
+            return dimension+2;
+        return 0;
+   }
+  
+  ArrayList random_set(int amount, int border) {
+      ArrayList<Integer> arrForNotRepeat=new ArrayList<Integer>();
+      int size=dimension*dimension;
+      
+      for(int i=0; i<=size-1;i++)
+            arrForNotRepeat.add(i);
+      
+      ArrayList<Integer> arrNumberResult=new ArrayList<Integer>();
+      
+      int position;
+      int currentlyBorder=border;
+      for(int i=1; i<=amount; i++){
+          position=rand.nextInt(currentlyBorder);
+          arrNumberResult.add(arrForNotRepeat.get(position));
+          arrForNotRepeat.remove(position);
+          currentlyBorder--;
+      }
+      
+      return arrNumberResult;
+      
   }
 
-  void setCurrentlySubLevel() {
+  void setCurrentlyLevel(int newLevel) {
+      currentlyLevel=newLevel;
   }
 
+  void setCurrentlySubLevel(int newSubLevel) {
+      currentlySubLevel=newSubLevel;
+  }
+  
+  int getCurrentlyLevel(){
+      return currentlyLevel;
+  }
+
+  int getCurrentlySubLevel(){
+      return currentlySubLevel;
+  }
   void newAttempt() {
   }
 
-  void setChoose() {
+  void setChoose(int  arg) {
+  }
+  
+  void setChoose(String arg) {
   }
 
-  void compare() {
+  boolean compare() {
+      return false;
   }
+  
+  int amount(){
+        if(currentlyLevel==1)
+            return 1;
+        return 0;
+    }
 
 }

@@ -81,8 +81,12 @@ abstract class Test  {
   }
   
   int amount(){
-        if(currentlyLevel==1)
-            return 1;
+           if(currentlyLevel==1)
+            return currentlySubLevel+3;
+        if(currentlyLevel==2)
+            return 8+(2*(currentlySubLevel-1));
+        if(currentlyLevel==3)
+            return 16+(2*(currentlySubLevel-1));
         return 0;
     }
 

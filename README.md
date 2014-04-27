@@ -41,4 +41,4 @@
 
 
 ## UML-diagram ##
-![UML](http://ipic.su/img/img7/fs/diag.1398139581.png)
+![UML](http://ipic.su/img/img7/fs/diag.1398602407.png)

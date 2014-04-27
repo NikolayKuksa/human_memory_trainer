@@ -1,29 +1,29 @@
 package human_memory_trainer.src;
 
-public abstract class Test extends MemoryTest implements MainBehavior {
+abstract class Test  {
 
-   protected Integer currentlyLevel;
+  protected Integer currentlyLevel;
 
-   protected Integer currentlySubLevel;
+  protected Integer currentlySubLevel;
 
-  public void setMaxLevel(){
-      
-  }
-
-  public void setMaxSubLevel(){
-      
-  }
+  protected Integer time;
   
-  public void random_set() {
+  void random_set() {
   }
 
-  public void timer() {
+  void setCurrentlyLevel() {
   }
 
-  public void setCurrentlyLevel() {
+  void setCurrentlySubLevel() {
   }
 
-  public void setCurrentlySubLevel() {
+  void newAttempt() {
+  }
+
+  void setChoose() {
+  }
+
+  void compare() {
   }
 
 }

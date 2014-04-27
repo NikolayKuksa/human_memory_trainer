@@ -1,10 +1,14 @@
 package human_memory_trainer.src;
 
-public abstract class MemoryTest {
+class MemoryTest {
 
-   protected Integer maxLevel;
+    private User myUser;
+    private Test myTest;
 
-   protected Integer maxSubLevel;
+  void loggedIn() {
+  }
 
+  void singIn() {
+  }
 
 }

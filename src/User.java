@@ -1,9 +1,10 @@
 package human_memory_trainer.src;
 
-public abstract class User extends MemoryTest{
+abstract class User{
 
   protected String login;
 
   protected String password;
+
 
 }

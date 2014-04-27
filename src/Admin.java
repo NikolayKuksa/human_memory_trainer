@@ -1,12 +1,8 @@
 package human_memory_trainer.src;
 
-public class Admin extends User implements MainBehavior {
-    
-  public void setMaxLevel(){
-      
+class Admin extends User {
+
+  void changeTime() {
   }
 
-  public void setMaxSubLevel(){
-      
-  }
 }

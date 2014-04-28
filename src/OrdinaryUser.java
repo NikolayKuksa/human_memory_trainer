@@ -32,11 +32,11 @@ class OrdinaryUser extends User {
             }
           }
           
-          //Пишем «Ура вы справились»
+          System.out.println("Пишем «Ура вы справились»");
       }
-      else ;//Вы проиграли
+      else ; System.out.println("Вы проиграли");
       if(maxAvailableLevel>3){
-          //Ура, вы прошли этот тест до конца
+          System.out.println("Ура, вы прошли этот тест до конца");
           maxAvailableLevel=3;
       }       
   }
@@ -49,9 +49,8 @@ class OrdinaryUser extends User {
       usegTest.setCurrentlySubLevel(number);
   }
 
-  void answer(int i,int j) {
-      int temp=usegTest.getCurrentlyDimension();
-      usegTest.setChoose(temp*(i-1)+j);
+  void answer(int index) {
+      usegTest.setChoose(index);
   }
  
   void answer(String myWorld){

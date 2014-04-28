@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 class OnCheckbox extends Test {
     private ArrayList<Integer> numbers;
-    private ArrayList <Boolean> byUser=new ArrayList<Boolean>();
+    private boolean byUser[]=new boolean[getSize()];
     
     OnCheckbox(){
         super();
@@ -15,27 +15,32 @@ class OnCheckbox extends Test {
         super(level,sublevel,t);
     }
     
+    private int getSize(){
+        return getCurrentlyDimension()*getCurrentlyDimension();
+    }
     private void cleanAnswer(){
-        for(int i=0;i<=byUser.size()-1;i++)
-            byUser.set(i, false);
+        for(int i=0;i<=getSize()-1;i++)
+            byUser[i]=false;
     }
     void newAttempt() {
         cleanAnswer();
-        int dim=getCurrentlyDimension()*getCurrentlyDimension();
-        numbers=random_set(amount(),dim-1);
+        numbers=random_set(amount(),getSize());
+        System.out.println("Номера выбранные генератором:");
+        for(int i=0; i<=numbers.size()-1;i++)
+            System.out.print(numbers.get(i)+"  ");
     }
     
     void setChoose(int i) {
-        if(byUser.get(i).equals(false))
-            byUser.set(i,true);
-        else byUser.set(i,false);
+        if(byUser[i]==false)
+            byUser[i]=true;
+        else byUser[i]=false;
     }
     
     boolean compare(){
       int i=-1;
       while(i<=numbers.size()-1){
           i++;
-          if(byUser.get(numbers.get(i)).equals(true))
+          if(byUser[numbers.get(i)]==true)
               continue;
           else return false;
       }

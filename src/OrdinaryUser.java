@@ -23,24 +23,27 @@ class OrdinaryUser extends User {
   }
   
   void checkOut() {
-      if(usegTest.compare()){
-          if(maxAvailableSubLevel==usegTest.getCurrentlySubLevel() && maxAvailableLevel==usegTest.getCurrentlyLevel() ){
-              maxAvailableSubLevel++;
-            if(maxAvailableSubLevel>5){
-              maxAvailableLevel++;
-              maxAvailableSubLevel=1;
+      try{
+        if(usegTest.compare()){
+             if(maxAvailableSubLevel==usegTest.getCurrentlySubLevel() && maxAvailableLevel==usegTest.getCurrentlyLevel() ){
+                maxAvailableSubLevel++;
+                if(maxAvailableSubLevel>5){
+                 maxAvailableLevel++;
+                maxAvailableSubLevel=1;
+                }
             }
-          }
-          
-          System.out.println("Пишем «Ура вы справились»");
+            System.out.println("Пишем «Ура вы справились»");
+        }
+        else System.out.println("Вы проиграли");
+        if(maxAvailableLevel>3){
+            System.out.println("Ура, вы прошли этот тест до конца");
+            maxAvailableLevel=3;
+        }       
+    }catch (OverAnswer e){
+          System.out.println("\nПерехвачено исключение! Вы не можете проверить результат :( \n  На "+usegTest.getCurrentlySubLevel()+" подуровне "+usegTest.getCurrentlyLevel()+" уровня  должно быть выбрано "+usegTest.amount()+" клеток!");
       }
-      else ; System.out.println("Вы проиграли");
-      if(maxAvailableLevel>3){
-          System.out.println("Ура, вы прошли этот тест до конца");
-          maxAvailableLevel=3;
-      }       
   }
-
+  
   void changeLevel(int number) {
       usegTest.setCurrentlyLevel(number);
   }
@@ -50,11 +53,19 @@ class OrdinaryUser extends User {
   }
 
   void answer(int index) {
-      usegTest.setChoose(index);
+      try{
+        usegTest.setChoose(index);
+      }
+      catch (ArrayIndexOutOfBoundsException e) {
+          System.out.println("\nПерехвачено исключение! Вы пытаетесь получить доступ к несуществующей клетке!!!" + e);
+      }
+      catch (OverAnswer e){
+          System.out.println("\nПерехвачено исключение! На "+usegTest.getCurrentlySubLevel()+" подуровне "+usegTest.getCurrentlyLevel()+" уровня  должно быть выбрано "+usegTest.amount()+" клеток!");
+      }
   }
  
   void answer(String myWorld){
-      usegTest.setChoose(myWorld);
+        usegTest.setChoose(myWorld);
   }
   
   void exitThisTest() {

@@ -8,7 +8,7 @@ abstract class Test  {
   protected int currentlyLevel=1;
   protected int currentlySubLevel=1;
   protected int time=5;
-  protected final int dimension=6;
+  protected final int dimension=5;
   private Random rand=new Random();
   
   Test(){
@@ -19,6 +19,10 @@ abstract class Test  {
       currentlySubLevel=sublevel;
       time=timeForTest;
   }
+  
+  protected int getSize(){
+        return getCurrentlyDimension()*getCurrentlyDimension();
+    }
 
   int getCurrentlyDimension(){
         if(currentlyLevel==1)
@@ -32,9 +36,8 @@ abstract class Test  {
   
   ArrayList random_set(int amount, int border) {
       ArrayList<Integer> arrForNotRepeat=new ArrayList<Integer>();
-      int size=dimension*dimension;
       
-      for(int i=0; i<=size-1;i++)
+      for(int i=0; i<=getSize()-1;i++)
             arrForNotRepeat.add(i);
       
       ArrayList<Integer> arrNumberResult=new ArrayList<Integer>();
@@ -70,13 +73,13 @@ abstract class Test  {
   void newAttempt() {
   }
 
-  void setChoose(int  arg) {
+  void setChoose(int  arg) throws OverAnswer  {
   }
   
   void setChoose(String arg) {
   }
 
-  boolean compare() {
+  boolean compare() throws OverAnswer {
       return false;
   }
   

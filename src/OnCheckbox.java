@@ -6,7 +6,7 @@ import java.util.ArrayList;
 class OnCheckbox extends Test {
     private ArrayList<Integer> numbers;
     private boolean byUser[]=new boolean[getSize()];
-    
+    private int countOfUserChoose=0;
     OnCheckbox(){
         super();
     }
@@ -15,10 +15,10 @@ class OnCheckbox extends Test {
         super(level,sublevel,t);
     }
     
-    private int getSize(){
-        return getCurrentlyDimension()*getCurrentlyDimension();
-    }
+    
     private void cleanAnswer(){
+        countOfUserChoose=0;
+        byUser=new boolean[getSize()];
         for(int i=0;i<=getSize()-1;i++)
             byUser[i]=false;
     }
@@ -30,13 +30,22 @@ class OnCheckbox extends Test {
             System.out.print(numbers.get(i)+"  ");
     }
     
-    void setChoose(int i) {
-        if(byUser[i]==false)
-            byUser[i]=true;
-        else byUser[i]=false;
+    void setChoose(int i) throws OverAnswer {
+        countOfUserChoose++;
+        if (countOfUserChoose> amount())
+            throw new OverAnswer();
+        if(byUser[i]==false){
+            byUser[i]=true; 
+        }  
+        else {
+            countOfUserChoose--;
+            byUser[i]=false;
+        }
     }
     
-    boolean compare(){
+    boolean compare()throws OverAnswer {
+      if (countOfUserChoose!=amount())
+            throw new OverAnswer(); 
       int i=-1;
       while(i<=numbers.size()-1){
           i++;

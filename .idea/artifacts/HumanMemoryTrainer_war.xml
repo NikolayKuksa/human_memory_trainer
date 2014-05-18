@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HumanMemoryTrainer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="HumanMemoryTrainer.war">
+      <element id="artifact" artifact-name="HumanMemoryTrainer:war exploded" />
+    </root>
+  </artifact>
+</component>

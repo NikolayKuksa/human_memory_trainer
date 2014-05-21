@@ -25,7 +25,8 @@ public class OrdinaryUser extends User {
         usegTest=activeTest;
     }
 
-    void checkOut() {
+    String checkOut() {
+        String res;
         try{
             if(usegTest.compare()){
                 if(maxAvailableSubLevel==usegTest.getCurrentlySubLevel() && maxAvailableLevel==usegTest.getCurrentlyLevel() ){
@@ -35,16 +36,17 @@ public class OrdinaryUser extends User {
                         maxAvailableSubLevel=1;
                     }
                 }
-                System.out.println("Пишем «Ура вы справились»");
+                res= "Пишем «Ура вы справились»";
             }
-            else System.out.println("Вы проиграли");
+            else res ="Вы проиграли";
             if(maxAvailableLevel>3){
-                System.out.println("Ура, вы прошли этот тест до конца");
+                res+=  "Ура, вы прошли этот тест до конца";
                 maxAvailableLevel=3;
             }
         }catch (OverAnswerException e){
-            System.out.println("\nПерехвачено исключение! Вы не можете проверить результат :( \n  На "+usegTest.getCurrentlySubLevel()+" подуровне "+usegTest.getCurrentlyLevel()+" уровня  должно быть выбрано "+usegTest.amount()+" клеток!");
+            res= "\nПерехвачено исключение! Вы не можете проверить результат :( \n  На "+usegTest.getCurrentlySubLevel()+" подуровне "+usegTest.getCurrentlyLevel()+" уровня  должно быть выбрано "+usegTest.amount()+" клеток!";
         }
+        return res;
     }
 
     void changeLevel(int number) {

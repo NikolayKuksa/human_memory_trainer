@@ -18,7 +18,10 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        process(request, response);
+        //process(request, response);
+        String mes= "Argument";
+        request.setAttribute("v",mes);
+        getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
     @Override
@@ -27,6 +30,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
     }
 }

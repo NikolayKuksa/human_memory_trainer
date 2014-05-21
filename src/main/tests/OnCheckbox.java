@@ -3,11 +3,11 @@ package main.tests;
 import java.util.ArrayList;
 import main.exceptions.OverAnswerException;
 
-class OnCheckbox extends Test {
+public class OnCheckbox extends Test {
     private ArrayList<Integer> numbers;
     private boolean byUser[]=new boolean[getSize()];
     private int countOfUserChoose=0;
-    OnCheckbox(){
+    public OnCheckbox(){
         super();
     }
 

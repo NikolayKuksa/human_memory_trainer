@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HumanMemoryTest">
+    <output-path>$PROJECT_DIR$/out/artifacts//HumanMemoryTest</output-path>
+    <root id="archive" name="HumanMemoryTest.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="HumanMemoryTest" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="HumanMemoryTest/web/Web" />
+    </root>
+  </artifact>
+</component>

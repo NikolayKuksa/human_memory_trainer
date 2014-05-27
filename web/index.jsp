@@ -115,7 +115,7 @@ var sColors = new Array(
 );
 // tableColor - id таблицы
 setInterval("changeBorderColor(tableColor, sColors)", sleepTime)
-
+//setTimeout("changeBorderColor(tableColor, sColors)", sleepTime)
 function changeBorderColor(objStyle, sColors) // мигающая рамка вокруг заголовка
 {
 nowColor++;
@@ -179,9 +179,10 @@ document.getElementById('reg').style.visibility = "visible";
 <h1 align="center"><font size="5" color="VioletRed" ><br>   Добро пожаловать на сайт тестирования кратковременной памяти! =)   </font></h1>
 </td></tr></table><br>
 <!--Приветствие пользователя, кнопка выход-->
-<table align="right" id="exit"width="47%" border="0" style="visibility:hidden; background-color:LightYellow; border-width: 1px;border-style: dashed;border-color: blue;">
-<tr height="40"><td><font size="3"><center><a id="kab" href="#"  style="text-decoration:none; visibility:hidden; color:green; " ></a></center></font></td>
-	<td  valign="left" width="15%"><div><input type="button" class="custom-button" value="   Exit   " onClick="pasuser_out()"></div></td>
+<table align="right" id="exit"width="47%" border="0" style="visibility:${visibleName}; background-color:LightYellow; border-width: 1px;border-style: dashed;border-color: blue;">
+<tr height="40"><td><font size="3"><center><a id="kab" href="#"  style="text-decoration:none; visibility:${visibleName}; color:green; " >
+Приветик, ${userName}! Можешь выбрать тест) Или выйти нажав на</a></center></font></td>
+	<td  valign="left" width="15%"><div><input type="button" class="custom-button" value="   Exit   " onClick=""></div></td>
 	</tr></table><br><br><br>
 
 <table width="100%" height="328"><tr><td class="mainTable"width="434" height="55" valign="top" style="background-color:LightYellow; background: #FFC125; background: linear-gradient(to right,Orange, white); padding: 10px;">
@@ -190,7 +191,7 @@ document.getElementById('reg').style.visibility = "visible";
 		<MAP name="point">
             <AREA shape=rect coords=0,0,163,151 title="Переход к тесту визуальной памяти!" HREF="/onCheckboxServlet" >
         </MAP></strong> 
-          <a href="button.html" onMouseOver="discription(1)" onMouseOut="nod(1)" > Тест визуальной памяти</a> 
+          <a href="/onCheckboxServlet" onMouseOver="discription(1)" onMouseOut="nod(1)" > Тест визуальной памяти</a> 
 		  
         <strong><img usemap="#word" src="img/word.jpg"  name="word" border="0" href="/word.jsp">
 		<MAP name="word">
@@ -209,8 +210,8 @@ document.getElementById('reg').style.visibility = "visible";
 	
 	<td valign="top" > <!--Форма входа на сайт-->
 	<center>
-<table id="reg"  bgcolor="#FFDEAD" cellpadding="2" style='border-width: thick; border-style: dotted; border-color: gold;    background: #fefcea; background: linear-gradient(to top,#fefcea, #FFDEAD); padding: 10px;'>
-<tr><td colspan="2"><center><h2><i><b><font color="black" size="2">Для входа в учетную запись введите логин и пароль (admin)
+<table id="reg"  bgcolor="#FFDEAD" cellpadding="2" style='visibility:${visibleLogin}; border-width: thick; border-style: dotted; border-color: gold;    background: #fefcea; background: linear-gradient(to top,#fefcea, #FFDEAD); padding: 10px;'>
+<tr><td colspan="2"><center><h2><i><b><font color="black" size="2">Для входа в учетную запись введите логин и пароль (или зарегистрируйтесь)
   </b></i></h2></center></td></tr>
 </font>
 <tr><td align="right"><h3><i><b><font color="#FF0000" size="2">Имя пользователя:</font></b></i></h3></td>
@@ -228,11 +229,10 @@ type="password"></td></tr>
 <tr height="80"><td align="right">
 <input type="Reset" class="custom-button"></td>
 <td><center>
-<input type="submit" class="custom-button" value=" Login "
-onClick="pasuser(this.form)"></center>
+<input type="submit" class="custom-button" value=" Login "></center><!--onClick="pasuser(this.form)"-->
 </form></td></tr><!--Окончание формы входа на сайт-->
 <tr height="80"><td></td><td>
-<form name="registration" action="regist.html" ><!--Начало формы регистрация-->
+<form name="registration" action="regist.jsp" ><!--Начало формы регистрация-->
 <center>
 <input type="submit" class="custom-button" value=" Регстрация "
 onClick=""></center>

@@ -42,7 +42,7 @@ public class OnCheckboxServlet extends HttpServlet {
         }
 
         if (user == null) {
-            user =new OrdinaryUser(test,1,1);
+            user =new OrdinaryUser(test);
             getServletContext().setAttribute("user", user);
         }
 

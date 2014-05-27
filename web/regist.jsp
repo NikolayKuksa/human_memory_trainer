@@ -130,7 +130,7 @@ objStyle.style.borderColor = sColors[nowColor];
 </td></tr></table>
 <br><br><br>
 
-<form action="main.html" method="POST">
+<form method="post" action="loginServlet">
 
 <table align="center"  bgcolor="#FFDEAD" cellpadding="3"  style='border-width: thick; border-style: dotted; border-color: gold;    background: #fefcea; background: linear-gradient(to top,#fefcea, #FFDEAD); padding: 10px;'>
 <tr>

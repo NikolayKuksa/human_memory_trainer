@@ -11,10 +11,10 @@ public class MemoryTest {
         //поск пользователя в БД
         if(userName.equals("admin"))
             myUser = new Admin();
-        else myUser=new OrdinaryUser(userName,userPassword,myTest,1,1);
+        else myUser=new OrdinaryUser(userName,userPassword,myTest);
     }
     void unknowUser(){
-        myUser=new OrdinaryUser(myTest,1,1);
+        myUser=new OrdinaryUser(myTest);
     }
 
     void singIn(String userName, String userPassword) {

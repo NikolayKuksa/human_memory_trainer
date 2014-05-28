@@ -90,6 +90,12 @@
 .custom-button:hover {
  opacity: .80;
 }
+
+.switch {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
 -->
 </style>
 <!--конец style-->
@@ -126,36 +132,43 @@ objStyle.style.borderColor = sColors[nowColor];
 <!--начало body-->
 <br>
 <table align="center" id="tableColor" class="gradient" style="background-color:Yellow; border: 5px solid;" cellpadding="5"><tr><td>
-<h1 align="center"><font size="5" color="VioletRed" ><br>    Регистрация:   </font></h1>
+<h1 align="center"><font size="5" color="VioletRed" ><br>    Страница Aдмина:   </font></h1>
 </td></tr></table>
 <br><br><br>
 
-<form method="post" action="loginServlet">
-
+<form action="adminServlet" method="post"> <!--форма-->
 
 <table align="center"  bgcolor="#FFDEAD" cellpadding="3"  style='border-width: thick; border-style: dotted; border-color: gold;    background: #fefcea; background: linear-gradient(to top,#fefcea, #FFDEAD); padding: 10px;'>
 <tr>
-<td>Логин<font color="red">*</font>:</td>
+<td>Логин пользователя:</td>
 <td><input type="text" size="20" name="login"></td>
 </tr>
 <tr>
-<td>Пароль<font color="red">*</font>:</td>
-<td><input type="password" size="20" maxlength="20" name="password"></td>
+<td>Время первого теста:</td>
+<td><input type="text" size="20" name="test1Time"></td>
 </tr>
 <tr>
-<td>Подтверждение пароля<font color="red">*</font>:</td>
-<td><input type="password" size="20" maxlength="20" name="password2"></td>
+<td>Время второго теста:</td>
+<td><input type="text" size="20" name="test2Time"></td>
 </tr>
-
-<tr height="80" >
+<tr>
+<td align="right"><input name="delete" value="true" type="checkbox" class="switch"></td>
+<td> Удалить пользователя из базы</td>
+</tr>
+<tr height="70" >
 <td></td>
-<td height="50" ><br><input type="submit" value="Зарегистроваться" name="submit" class="custom-button">
+<td height="50" ><br><input type="submit" value="Сохранить" name="submit" class="custom-button">
+</td>
+</tr>
+<tr height="70" >
+<td></td>
+<td height="50" ><br><input type="button" value="На главную" name="main" class="custom-button" OnClick="location.href='/main.html'">
 </td>
 </tr>
 </table>
 </form>
 
-<br><h3><center>Поля со значком <font color="red">*</font> обязательны для заполнения</center></h3>
+
   <!--конец body и документа-->
 </body> 
 </html> 

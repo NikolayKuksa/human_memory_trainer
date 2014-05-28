@@ -10,7 +10,6 @@ public class UserDao {
     public UserDao() {
         connection = Database.getConnection();
     }
-
     public boolean checkUser(OrdinaryUser user) {
         boolean res=false;
         try {

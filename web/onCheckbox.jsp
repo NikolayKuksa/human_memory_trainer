@@ -130,12 +130,14 @@ function setcolor(x) { // функция закрашивает клеточку
 <!-- 
 var position=new Array(); // массив коефициентав таблиц (построчно)
 var number=new Array(); // массив номеров коефициентов, которые надо отобразить на таблице
-var time_sec=10; // значение таймера
+var time_sec= ${timeCounter}; // значение таймера
 
 function setColour(){
-    number = [1,2,3,4];
-    
+    number = [1,2,3,4]; 
 }
+
+var numberOut = new Array();
+var numberUser = new Array();
 function text_point(which) // рисует на таблице кружочки в заданых местах
 { 
 	number = ${random};
@@ -150,12 +152,18 @@ function text_point(which) // рисует на таблице кружочки 
 		document.getElementById('menuAccess').style.visibility = "hidden";
 	}else {// нажата кнопка "Проверить"
 		//chak();
-	//	for (i=0; i<number.length; i++){
-	//		document.getElementById(position[number[i]].id).innerHTML='&#9679'; } 
+		numberOut = ${randomRepeat};
+		numberUser = ${userChoice};
+		for (i=0; i<numberOut.length; i++){
+			document.getElementById(position[numberOut[i]].id).innerHTML='&#9679'; } 
+		for (i=0; i<numberUser.length; i++){
+			document.getElementById(position[numberUser[i]].id).style.backgroundColor = 'red';}
 		timeWord.innerHTML="";
 		countdown.innerHTML="";
 	}
 }
+setTimeout("text_point(2)",10)
+
 function text_flower(which) // рисует на таблице цветочки в заданых местах
 { 
 number = [0,7,10,14,21,25,28,35];

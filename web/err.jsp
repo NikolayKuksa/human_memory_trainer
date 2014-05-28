@@ -90,6 +90,12 @@
 .custom-button:hover {
  opacity: .80;
 }
+
+.switch {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
 -->
 </style>
 <!--конец style-->
@@ -126,36 +132,26 @@ objStyle.style.borderColor = sColors[nowColor];
 <!--начало body-->
 <br>
 <table align="center" id="tableColor" class="gradient" style="background-color:Yellow; border: 5px solid;" cellpadding="5"><tr><td>
-<h1 align="center"><font size="5" color="VioletRed" ><br>    Регистрация:   </font></h1>
+<h1 align="center"><font size="5" color="VioletRed" ><br>    Произошла ошибка:   </font></h1>
 </td></tr></table>
-<br><br><br>
+<br>
 
-<form method="post" action="loginServlet">
+<form action=""> <!--форма-->
 
-
-<table align="center"  bgcolor="#FFDEAD" cellpadding="3"  style='border-width: thick; border-style: dotted; border-color: gold;    background: #fefcea; background: linear-gradient(to top,#fefcea, #FFDEAD); padding: 10px;'>
+<table height="450"width="1100"align="center"  bgcolor="#FFDEAD" cellpadding="3"  style='border-width: thick; border-style: dotted; border-color: gold;    background: #fefcea; background: linear-gradient(to top,#fefcea, #FFDEAD); padding: 10px;'>
 <tr>
-<td>Логин<font color="red">*</font>:</td>
-<td><input type="text" size="20" name="login"></td>
+<td align="center"><strong><img src="img/sadSun.jpeg" name="sadSun" border="0" ></strong> </td>
 </tr>
-<tr>
-<td>Пароль<font color="red">*</font>:</td>
-<td><input type="password" size="20" maxlength="20" name="password"></td>
-</tr>
-<tr>
-<td>Подтверждение пароля<font color="red">*</font>:</td>
-<td><input type="password" size="20" maxlength="20" name="password2"></td>
-</tr>
-
-<tr height="80" >
-<td></td>
-<td height="50" ><br><input type="submit" value="Зарегистроваться" name="submit" class="custom-button">
+<tr><td align="center"><h2>${err}</h2>
+</td></tr>
+<tr height="70" >
+<td height="50" align="center"><br><input type="button" value="На главную" name="main" class="custom-button" OnClick="location.href='/main.html'">
 </td>
 </tr>
 </table>
 </form>
 
-<br><h3><center>Поля со значком <font color="red">*</font> обязательны для заполнения</center></h3>
+
   <!--конец body и документа-->
 </body> 
 </html> 

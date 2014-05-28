@@ -1,4 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html> 
 <head> 
 <meta http-equiv="Content-Language" content="ru">
@@ -182,7 +183,10 @@ document.getElementById('reg').style.visibility = "visible";
 <table align="right" id="exit"width="47%" border="0" style="visibility:${visibleName}; background-color:LightYellow; border-width: 1px;border-style: dashed;border-color: blue;">
 <tr height="40"><td><font size="3"><center><a id="kab" href="#"  style="text-decoration:none; visibility:${visibleName}; color:green; " >
 Приветик, ${userName}! Можешь выбрать тест) Или выйти нажав на</a></center></font></td>
-	<td  valign="left" width="15%"><div><input type="button" class="custom-button" value="   Exit   " onClick=""></div></td>
+    <c:url var="logout_url" value="/main.html">
+        <c:param name="command" value="logout"/>
+    </c:url>
+	<td  valign="left" width="15%"><div><input type="button" class="custom-button" value="   Exit   " onClick="location.href='${logout_url}'"></div></td>
 	</tr></table><br><br><br>
 
 <table width="100%" height="328"><tr><td class="mainTable"width="434" height="55" valign="top" style="background-color:LightYellow; background: #FFC125; background: linear-gradient(to right,Orange, white); padding: 10px;">
@@ -217,7 +221,7 @@ document.getElementById('reg').style.visibility = "visible";
 <tr><td align="right"><h3><i><b><font color="#FF0000" size="2">Имя пользователя:</font></b></i></h3></td>
 <font size="3" color="#FF0000">
 <td>
-<form name="login" target="myIFR">
+<form name="login" action="main.html" method="post">
 <input name="id" type="text"></td></tr>
 </font>
 <tr><td align="right"><h3><i><b><font color="#FF0000" size="2">Пароль:</font></b></i></h3></td>

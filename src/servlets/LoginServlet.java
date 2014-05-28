@@ -20,14 +20,6 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setAttribute("visibleLogin","hidden");
-//        request.setAttribute("visibleName","visible");
-//        request.setAttribute("userName","Anton");
-//        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-        process(request, response);
-//        String mes= "Argument";
-//        request.setAttribute("v",mes);
-//        getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
     @Override
@@ -36,12 +28,31 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String s1=request.getParameter("login");
-    String s2=request.getParameter("password");
-    OrdinaryUser newUser = new OrdinaryUser(s1, s2);
-        //OrdinaryUser newUser = new OrdinaryUser("nick", "nickpass");
-    UserDao dao=new UserDao();
-    dao.addUser(newUser);
+    if(request.getSession().getAttribute("dao")==null) {
+         UserDao dao = new UserDao();
+          request.getSession().setAttribute("dao", dao);
+    }
+    UserDao dao =(UserDao)request.getSession().getAttribute("dao");
+
+    String name=request.getParameter("login");
+    String pass=request.getParameter("password");
+    String pass2=request.getParameter("password2");
+
+        if(name!=null && pass!=null && pass2!=null){
+            if(pass.equals(pass2)){
+                OrdinaryUser user=new OrdinaryUser(name,pass);
+                if(!dao.checkUser(user)) {
+                    dao.addUser(user);
+                    request.setAttribute("visibleLogin", "visible");
+                    request.setAttribute("visibleName", "hidden");
+                    getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+                    return;
+                }
+            }
+        }
+   String mes="Вы ввели невернеые даные для регистрации, или учетная запись с таким логином уже существует!";
+    request.setAttribute("err",mes);
+        getServletContext().getRequestDispatcher("/err.jsp").forward(request, response);
 
 
 

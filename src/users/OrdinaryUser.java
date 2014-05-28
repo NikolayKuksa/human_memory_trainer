@@ -1,5 +1,6 @@
 package users;
 
+import dataBase.UserDao;
 import exceptions.OverAnswerException;
 import testsForUsers.OnCheckbox;
 import testsForUsers.Test;
@@ -20,8 +21,14 @@ public class OrdinaryUser extends User {
 
     public OrdinaryUser(String name){
         login=name;
-        //получение с БД значение времени доступного и уровня
-        //для этого пользователя
+        UserDao dao =new UserDao();
+        password=dao.getUserById(name).getPassword();
+        maxAvailableLevelForCheckboxTest=dao.getUserById(name).getMaxAvailableLevelForCheckboxTest();
+        maxAvailableSubLevelForCheckboxTest=dao.getUserById(name).getMaxAvailableSubLevelForCheckboxTest();
+        maxAvailableLevelForKeyboardInputTest=dao.getUserById(name).getMaxAvailableLevelForKeyboardInputTest();
+        maxAvailableSubLevelForKeyboardInputTest=dao.getUserById(name).getMaxAvailableSubLevelForKeyboardInputTest();
+        timeForCheckboxTest=dao.getUserById(name).getTimeForCheckboxTest();
+        timeForKeyboardInputTest=dao.getUserById(name).getTimeForKeyboardInputTest();
     }
 
     public OrdinaryUser(String name, String pass) {
